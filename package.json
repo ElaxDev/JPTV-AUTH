@@ -1,0 +1,20 @@
+{
+  "name": "jptv-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Elax27#8923",
+  "license": "ISC",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
