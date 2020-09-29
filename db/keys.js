@@ -3,10 +3,10 @@
 module.exports = {
     database: {
         connectionLimit: 10,
-        user: 'root',
-        password: '',
-        database: 'jptv_test',
-        host: 'localhost',
-        port: '3306'
+        user: 'YOUR DATABASE USER GO HERE',
+        password: 'YOUR DATABASE PASSWORD GO HERE',
+        database: 'THE NAME OF YOUR DATABASE GO HERE',
+        host: 'YOUR HOST GO HERE',
+        port: 'THE PORT GO HERE'
     }
 };
