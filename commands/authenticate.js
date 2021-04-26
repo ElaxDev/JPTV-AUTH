@@ -7,8 +7,8 @@ module.exports.run = async (bot, message, args) => {
   let username;
   let PID;
 
-  memberRole = await member.roles.cache.find(role => role.name === 'User');
-  
+  memberRole = await member.roles.cache.find(role => role.name.toLowerCase() === 'user');
+
   if(memberRole !== undefined) {
     return message.reply(`you are already a User!`);
   }
@@ -82,12 +82,17 @@ module.exports.run = async (bot, message, args) => {
           }
         });
       });
-      await member.roles.add(role);
+      try {
+        await member.roles.add(role);
+      } catch (DiscordAPIError) {
+        return author.send("An error ocurred, this probably means I don't have the neccessary permissions to give you a role, contact the server administrator.")
+      }
       if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')){
         return console.log(`I don't have permission to change users nickname, 
         please give me a role with the "MANAGE NICKNAMES" permission`);
+      } else {
+        await message.member.setNickname(user[0].username);
       }
-      await message.member.setNickname(user[0].username);
     }
     return author.send({
       embed: {
@@ -107,5 +112,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
   name: 'authenticate',
-  help: 'Authenticates you in the server proving that you are part of the tracker'
+  help: 'Authenticates you in the server proving that you are part of the tracker.'
 };
