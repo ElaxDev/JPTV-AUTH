@@ -1,6 +1,6 @@
 # JPTV-AUTH
 
- A user authentication bot for the [JPTV Club](https://jptv.club/) Discord server, but works with any [Unit3D](https://github.com/HDInnovations/UNIT3D-Community-Edition) private torrent tracker.
+ An user authentication bot for the [JPTV Club](https://jptv.club/) Discord server, but works with any [Unit3D](https://github.com/HDInnovations/UNIT3D-Community-Edition) private torrent tracker.
 
 ## Setup
 
