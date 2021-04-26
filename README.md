@@ -5,7 +5,7 @@
 ## Setup
 
   1. Run `npm install` in the bot's root folder.
-  2. Create an .env file following this pattern:
+  2. Edit the .env file and fill the corresponding data:
 
     NODE_ENV=production
     TOKEN=YOUR TOKEN GOES HERE
