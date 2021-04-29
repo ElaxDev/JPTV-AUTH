@@ -23,16 +23,7 @@ module.exports.run = async (bot, message, args) => {
       return msgs;
   }
 
-  await author.send({
-    embed: {
-      color: 4281702,
-      description: 'Please send your site username:'
-    }
-  });
-
-  try {
-    username = await awaitMsgs();
-  } catch (error) {
+  function sendTimeoutMsg() {
     return author.send({
       embed: {
         color: 15417396,
@@ -44,18 +35,30 @@ module.exports.run = async (bot, message, args) => {
   await author.send({
     embed: {
       color: 4281702,
-      description: 'Now send your user PID:'
+      description: 'Please send your site username:'
     }
   });
+
+  try {
+    username = await awaitMsgs();
+  } catch (error) {
+    sendTimeoutMsg();
+  }
+
+  await author.send({
+    embed: {
+      color: 4281702,
+      description: 'Now send your user PID:',
+      footer: {
+        text: "You can find the PID under 'My Security> Pass Key (PID)'"
+      }
+    }
+  });
+
   try {
     PID = await awaitMsgs();
     } catch (error) {
-    return author.send({
-      embed: {
-        color: 15417396,
-        description: "You didn't answer in the time limit!"
-      }
-    });
+      sendTimeoutMsg();
   }
 
   const user = await db.query(
